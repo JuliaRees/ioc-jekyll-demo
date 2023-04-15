@@ -1,25 +1,48 @@
 ---
 layout: default
 title: Homepage
+news:
+ - title: Big Sale
+   description: Exciting things are happening
+   date: 13th Jan
+   category: promo
+   url: https://www.sale.com
+ - title: New Puppy
+   description: How cute!
+   date: 4th April
+   category: bts
+   url: https://www.puppy.com
+ - title: fresh salads
+   description: come by today!
+   date: 2nd June
+   category: news
+   url: https://www.salads.com
+ - title: coffe time
+   description: best time of the day
+   date: 26th of august
+   category: boom
+   url: https://www.coffee.com
 ---
-<h1>Welcome to your homepage!</h1>
 
-<section>
-    <div class="card">
-        <h2> Apple </h2>
-        <p> The best fruit. </p>
+<section class="padded bg-featured grid-spaceBetween latest-news">
+      
+    {% for item in page.news %}
+    <!-- First Card   -->
+      <div class="col-3_xs-8">
+        <div class="card">
+          <div class="bg-image portrait">
+            <span> {{item.category}} </span>  
+          </div> 
+          <div class="post-info"> 
+            <p class="date"> {{item.date}} </p> 
+            <h3> {{item.title}} </h3> 
+            <p> {{item.description}} </p> 
+            <a href="{{item.url}}"> Find out more &nbsp; &#10141;</a>
+          </div>
+        </div>
+      </div> 
     </div>
-    <div class="card">
-        <h2> Pineapple </h2>
-        <p> The second best fruit. </p>
-    </div>
-    <div class="card">
-        <h2> Kiwi </h2>
-        <p> The nicest fruit. </p>
-    </div>
-    <div class="card">
-        <h2> Pear </h2>
-        <p> The most boring fruit. </p>
-    </div>
-</section>
+
+    {% endfor %}
+  </section> 
 
